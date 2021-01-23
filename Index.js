@@ -3,6 +3,7 @@ const path = require("path");
 const inquirer = require('inquirer');
 
 
+
 const promptUser = () => {
 return inquirer.prompt([
 
@@ -37,3 +38,10 @@ promptUser()
     //   console.log('Page created! Check out index.html in this directory to see it!');
     // });
   });
+
+const generateTeam= require('./src/generateHTML');
+const generateCards = require('../src/generateHTML');
+const Intern = require('../lib/Intern');
+const Employee = require ('/lib/Employee')
+const Engineer = require('../lib/Engineer');
+const Manager = require ('/lib/Manager')  
