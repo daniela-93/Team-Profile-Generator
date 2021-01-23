@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-const checkIfEqual = require('../lib/Employee.js');
-
-test('checks if 10 is equal to 10', () => {
-  expect(checkIfEqual(10, 10)).toBe(true);
-});
-=======
 const Employee = require("../lib/Employee.js") 
 
 
@@ -30,4 +23,3 @@ test('return email address of Employee', () => {
 
 
 
->>>>>>> 6b8ab8c9f41dac0749208fc4f75dee3265c9c8f1
