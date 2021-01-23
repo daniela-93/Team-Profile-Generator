@@ -1,21 +1,26 @@
 const Intern = require('../lib/Intern');
 
 test('creates a new enemy object', () => {
-    const intern = new intern("intern", "id", "email", "school");
+    const intern = new Intern('Sarah', '25', 'sarah@gmail.com', 'University of Texas');
+    expect(intern.name).toBe('Sarah');
   
-    expect(intern.name).toEqual(expect.any(String));
-    expect(intern.name.length).toBeGreaterThan(O);
-    expect(intern.id).toEqual(expect.any(Number));
-    expect(intern.email).toEqual(expect.any(String));
-    expect(intern.email.length).toEqual(expect.any(Number));
-    expect(intern.school).toEqual(expect.any(String));
-  
-
   });
 
-  test("returns interns school", () => {
-    const intern = new intern("intern", "email","id", "school" );
+
+test('returns id number of Intern', () => {
+  const intern = new Intern('Sarah', '25', 'sarah@gmail.com', 'University of Texas')
+  expect(intern.id).toBe('25');
+
+});
+  test('return email of intern', () => {
+    const intern = new Intern('Sarah', '25', 'sarah@gmail.com', 'University of Texas');
+   expect(intern.email).toBe('sarah@gmail.com');
   
-    expect(intern.getSchool()).toBe("school");
-   
   });
+
+  
+test('return school of intern', () => {
+  const intern = new Intern('Sarah', '25', 'sarah@gmail.com', 'University of Texas');
+ expect(intern.school).toBe('University of Texas');
+
+});
