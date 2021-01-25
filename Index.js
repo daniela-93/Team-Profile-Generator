@@ -1,69 +1,19 @@
-const fs= require('fs');
+const { default: generate } = require("@babel/generator");
+const fs = require('fs')
+const Prompter = require("./lib/Prompter.js");
+const generatePage = require("./src/generateHTML.js");
 
+const session = new Prompter();
 
-const inquirer = require('inquirer');
-const Manager = require('./lib/Manager');
-const Intern = require('./lib/Intern');
-const Engineer = require('./lib/Engineer');
-
-
-const promptUser = [];
-
-const questions= 
-   inquirer.prompt([
-  {
-
-  ///Manager// 
-
-      type: 'input',
-      name: 'Name',
-      message: 'What is the Managers name?',
-      validate: nameInput => {
-         if (nameInput){
-           return true;
-
-         }else {
-           console.log('Please enter Managers name');
-           return false;
-         }
-        }
-        },
-        {
-   
-          type:'input',
-          name: 'Id',
-          message: 'What is the Managers Id?',
-          validate: idInput => {
-            if (idInput) {
-              return true;
-            } else {
-              console.log('You must enter an ID number!');
-              return false;
-            }
-    
-          
-          }
-  
-    },
-    {
-   
-      type:'input',
-      name: 'email',
-      message: 'What is the Managers email?',
-      validate: emailInput => {
-        if(emailInput){
-        return true;
-        } else {
-          console.log('You must enter a valid email address!');
-        }
-      }
-        
-      
-      },
-      {
-     
-        type:'input',
-        name: 'office',
-        message: 'What is the Managers office number?',
-      }
-    ])
+session
+  .prompt()
+  .then((data) => {
+    return generatePage(data);
+  })
+  .then(data => {
+    fs.writeFile('./dist/index.html', data, err => {
+      if (err) throw err;
+      console.log('The file has been saved!');
+    })
+  })
+  .catch((err) => console.log(err));
