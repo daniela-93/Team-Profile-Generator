@@ -12,7 +12,7 @@ This is an application to generate a professional team webpage for any project. 
 
 This application uses Jest to test. 
 
-npm run test 
+*npm run test*
 
 # Screenshot 
 
