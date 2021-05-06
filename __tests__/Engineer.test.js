@@ -14,13 +14,15 @@ test('creates a new enemy object', () => {
     
   });
   
-  test('returns engineers github username', () => {
-    const engineer = new Engineer('Steve','55','steve@gmail.com','Steve1234');  
-    expect(engineer.github).toBe('Steve1234');
-    
-  });
+
   test('returns engineers email', () => {
     const engineer = new Engineer('Steve','55','steve@gmail.com','Steve1234');  
     expect(engineer.email).toBe('steve@gmail.com');
 
+  });
+
+  test('returns engineers github username', () => {
+    const engineer = new Engineer('Steve','55','steve@gmail.com','Steve1234');  
+    expect(engineer.github).toBe('Steve1234');
+    
   });

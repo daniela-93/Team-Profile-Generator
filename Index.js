@@ -38,9 +38,9 @@ const promptUser = () => {
       }
     },
     {
-        message: "Please enter your email",
-        name: "email",
-        type: "input",
+        message: 'Please enter your email',
+        name: 'email',
+        type: 'input',
         default: () => {},
         validate: function (email) {
 
@@ -54,7 +54,20 @@ const promptUser = () => {
             }
         }
       },
-      
+      { type: 'input',
+        name: 'officeNumber',
+        message: 'Enter this managers office number (Required)',
+
+        validate: idInput => {
+          if (idInput){
+            return true;
+          }
+          else{
+            console.log('Please enter a valid ID!');
+            return false;
+          }
+        }
+      },
       {
         type: 'confirm',
         name: 'confirmAddEmployee',
@@ -226,7 +239,7 @@ const promptAddEmployee = () => {
           })
       }
       else{
-          promptEngi()
+          promptEngineer()
           .then(engiData =>{
               const engi1 = new Engineer(engiData.name, engiData.id, engiData.email, engiData.gitHub);
               employees.push(engi1);
